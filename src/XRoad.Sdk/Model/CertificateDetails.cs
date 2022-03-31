@@ -110,112 +110,112 @@ public class CertificateDetails : IEquatable<CertificateDetails>, IValidatableOb
     /// </summary>
     /// <value>certificate issuer distinguished name</value>
     [DataMember(Name = "issuer_distinguished_name", IsRequired = true, EmitDefaultValue = false)]
-    public string IssuerDistinguishedName { get; set; }
+    public string IssuerDistinguishedName { get; }
 
     /// <summary>
     /// certificate issuer common name
     /// </summary>
     /// <value>certificate issuer common name</value>
     [DataMember(Name = "issuer_common_name", IsRequired = true, EmitDefaultValue = false)]
-    public string IssuerCommonName { get; set; }
+    public string IssuerCommonName { get; }
 
     /// <summary>
     /// certificate subject distinguished name
     /// </summary>
     /// <value>certificate subject distinguished name</value>
     [DataMember(Name = "subject_distinguished_name", IsRequired = true, EmitDefaultValue = false)]
-    public string SubjectDistinguishedName { get; set; }
+    public string SubjectDistinguishedName { get; }
 
     /// <summary>
     /// certificate subject common name
     /// </summary>
     /// <value>certificate subject common name</value>
     [DataMember(Name = "subject_common_name", IsRequired = true, EmitDefaultValue = false)]
-    public string SubjectCommonName { get; set; }
+    public string SubjectCommonName { get; }
 
     /// <summary>
     /// certificate validity not before
     /// </summary>
     /// <value>certificate validity not before</value>
     [DataMember(Name = "not_before", IsRequired = true, EmitDefaultValue = false)]
-    public DateTime NotBefore { get; set; }
+    public DateTime NotBefore { get; }
 
     /// <summary>
     /// certificate validity not after
     /// </summary>
     /// <value>certificate validity not after</value>
     [DataMember(Name = "not_after", IsRequired = true, EmitDefaultValue = false)]
-    public DateTime NotAfter { get; set; }
+    public DateTime NotAfter { get; }
 
     /// <summary>
     /// serial number
     /// </summary>
     /// <value>serial number</value>
     [DataMember(Name = "serial", IsRequired = true, EmitDefaultValue = false)]
-    public string Serial { get; set; }
+    public string Serial { get; }
 
     /// <summary>
     /// version
     /// </summary>
     /// <value>version</value>
     [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
-    public int Version { get; set; }
+    public int Version { get; }
 
     /// <summary>
     /// certificate signature algorithm
     /// </summary>
     /// <value>certificate signature algorithm</value>
     [DataMember(Name = "signature_algorithm", IsRequired = true, EmitDefaultValue = false)]
-    public string SignatureAlgorithm { get; set; }
+    public string SignatureAlgorithm { get; }
 
     /// <summary>
     /// hex encoded certificate signature
     /// </summary>
     /// <value>hex encoded certificate signature</value>
     [DataMember(Name = "signature", IsRequired = true, EmitDefaultValue = false)]
-    public string Signature { get; set; }
+    public string Signature { get; }
 
     /// <summary>
     /// certificate public key algorithm
     /// </summary>
     /// <value>certificate public key algorithm</value>
     [DataMember(Name = "public_key_algorithm", IsRequired = true, EmitDefaultValue = false)]
-    public string PublicKeyAlgorithm { get; set; }
+    public string PublicKeyAlgorithm { get; }
 
     /// <summary>
     /// hex encoded RSA public key modulus (if RSA key)
     /// </summary>
     /// <value>hex encoded RSA public key modulus (if RSA key)</value>
     [DataMember(Name = "rsa_public_key_modulus", IsRequired = true, EmitDefaultValue = false)]
-    public string RsaPublicKeyModulus { get; set; }
+    public string RsaPublicKeyModulus { get; }
 
     /// <summary>
     /// RSA public key exponent (if RSA key) as an integer
     /// </summary>
     /// <value>RSA public key exponent (if RSA key) as an integer</value>
     [DataMember(Name = "rsa_public_key_exponent", IsRequired = true, EmitDefaultValue = false)]
-    public int RsaPublicKeyExponent { get; set; }
+    public int RsaPublicKeyExponent { get; }
 
     /// <summary>
     /// certificate SHA-1 hash
     /// </summary>
     /// <value>certificate SHA-1 hash</value>
     [DataMember(Name = "hash", IsRequired = true, EmitDefaultValue = false)]
-    public string Hash { get; set; }
+    public string Hash { get; }
 
     /// <summary>
     /// certificate key usage array
     /// </summary>
     /// <value>certificate key usage array</value>
     [DataMember(Name = "key_usages", IsRequired = true, EmitDefaultValue = false)]
-    public List<KeyUsage> KeyUsages { get; set; }
+    public List<KeyUsage> KeyUsages { get; }
 
     /// <summary>
     /// certificate subject alternative names
     /// </summary>
     /// <value>certificate subject alternative names</value>
     [DataMember(Name = "subject_alternative_names", IsRequired = true, EmitDefaultValue = false)]
-    public string SubjectAlternativeNames { get; set; }
+    public string SubjectAlternativeNames { get; }
 
     /// <summary>
     /// Returns the string presentation of the object
@@ -365,8 +365,8 @@ public class CertificateDetails : IEquatable<CertificateDetails>, IValidatableOb
             if (IssuerCommonName != null) hashCode = hashCode * 59 + IssuerCommonName.GetHashCode();
             if (SubjectDistinguishedName != null) hashCode = hashCode * 59 + SubjectDistinguishedName.GetHashCode();
             if (SubjectCommonName != null) hashCode = hashCode * 59 + SubjectCommonName.GetHashCode();
-            if (NotBefore != null) hashCode = hashCode * 59 + NotBefore.GetHashCode();
-            if (NotAfter != null) hashCode = hashCode * 59 + NotAfter.GetHashCode();
+            hashCode = hashCode * 59 + NotBefore.GetHashCode();
+            hashCode = hashCode * 59 + NotAfter.GetHashCode();
             if (Serial != null) hashCode = hashCode * 59 + Serial.GetHashCode();
             hashCode = hashCode * 59 + Version.GetHashCode();
             if (SignatureAlgorithm != null) hashCode = hashCode * 59 + SignatureAlgorithm.GetHashCode();
@@ -389,13 +389,13 @@ public class CertificateDetails : IEquatable<CertificateDetails>, IValidatableOb
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
         // IssuerDistinguishedName (string) maxLength
-        if (IssuerDistinguishedName != null && IssuerDistinguishedName.Length > 255)
+        if (IssuerDistinguishedName is {Length: > 255})
             yield return new ValidationResult(
                 "Invalid value for IssuerDistinguishedName, length must be less than 255.",
                 new[] {"IssuerDistinguishedName"});
 
         // IssuerDistinguishedName (string) minLength
-        if (IssuerDistinguishedName != null && IssuerDistinguishedName.Length < 1)
+        if (IssuerDistinguishedName is {Length: < 1})
             yield return new ValidationResult(
                 "Invalid value for IssuerDistinguishedName, length must be greater than 1.",
                 new[] {"IssuerDistinguishedName"});
@@ -411,24 +411,24 @@ public class CertificateDetails : IEquatable<CertificateDetails>, IValidatableOb
                 new[] {"IssuerCommonName"});
 
         // SubjectDistinguishedName (string) maxLength
-        if (SubjectDistinguishedName != null && SubjectDistinguishedName.Length > 255)
+        if (SubjectDistinguishedName is {Length: > 255})
             yield return new ValidationResult(
                 "Invalid value for SubjectDistinguishedName, length must be less than 255.",
                 new[] {"SubjectDistinguishedName"});
 
         // SubjectDistinguishedName (string) minLength
-        if (SubjectDistinguishedName != null && SubjectDistinguishedName.Length < 1)
+        if (SubjectDistinguishedName is {Length: < 1})
             yield return new ValidationResult(
                 "Invalid value for SubjectDistinguishedName, length must be greater than 1.",
                 new[] {"SubjectDistinguishedName"});
 
         // SubjectCommonName (string) maxLength
-        if (SubjectCommonName != null && SubjectCommonName.Length > 255)
+        if (SubjectCommonName is {Length: > 255})
             yield return new ValidationResult("Invalid value for SubjectCommonName, length must be less than 255.",
                 new[] {"SubjectCommonName"});
 
         // SubjectCommonName (string) minLength
-        if (SubjectCommonName != null && SubjectCommonName.Length < 1)
+        if (SubjectCommonName is {Length: < 1})
             yield return new ValidationResult("Invalid value for SubjectCommonName, length must be greater than 1.",
                 new[] {"SubjectCommonName"});
         // TODO
@@ -457,71 +457,71 @@ public class CertificateDetails : IEquatable<CertificateDetails>, IValidatableOb
         // }
 
         // Serial (string) maxLength
-        if (Serial != null && Serial.Length > 255)
+        if (Serial is {Length: > 255})
             yield return new ValidationResult("Invalid value for Serial, length must be less than 255.",
                 new[] {"Serial"});
 
         // Serial (string) minLength
-        if (Serial != null && Serial.Length < 1)
+        if (Serial is {Length: < 1})
             yield return new ValidationResult("Invalid value for Serial, length must be greater than 1.",
                 new[] {"Serial"});
 
         // SignatureAlgorithm (string) maxLength
-        if (SignatureAlgorithm != null && SignatureAlgorithm.Length > 255)
+        if (SignatureAlgorithm is {Length: > 255})
             yield return new ValidationResult("Invalid value for SignatureAlgorithm, length must be less than 255.",
                 new[] {"SignatureAlgorithm"});
 
         // SignatureAlgorithm (string) minLength
-        if (SignatureAlgorithm != null && SignatureAlgorithm.Length < 1)
+        if (SignatureAlgorithm is {Length: < 1})
             yield return new ValidationResult("Invalid value for SignatureAlgorithm, length must be greater than 1.",
                 new[] {"SignatureAlgorithm"});
 
         // Signature (string) maxLength
-        if (Signature != null && Signature.Length > 255)
+        if (Signature is {Length: > 255})
             yield return new ValidationResult("Invalid value for Signature, length must be less than 255.",
                 new[] {"Signature"});
 
         // Signature (string) minLength
-        if (Signature != null && Signature.Length < 1)
+        if (Signature is {Length: < 1})
             yield return new ValidationResult("Invalid value for Signature, length must be greater than 1.",
                 new[] {"Signature"});
 
         // PublicKeyAlgorithm (string) maxLength
-        if (PublicKeyAlgorithm != null && PublicKeyAlgorithm.Length > 255)
+        if (PublicKeyAlgorithm is {Length: > 255})
             yield return new ValidationResult("Invalid value for PublicKeyAlgorithm, length must be less than 255.",
                 new[] {"PublicKeyAlgorithm"});
 
         // PublicKeyAlgorithm (string) minLength
-        if (PublicKeyAlgorithm != null && PublicKeyAlgorithm.Length < 1)
+        if (PublicKeyAlgorithm is {Length: < 1})
             yield return new ValidationResult("Invalid value for PublicKeyAlgorithm, length must be greater than 1.",
                 new[] {"PublicKeyAlgorithm"});
 
         // RsaPublicKeyModulus (string) maxLength
-        if (RsaPublicKeyModulus != null && RsaPublicKeyModulus.Length > 1000)
+        if (RsaPublicKeyModulus is {Length: > 1000})
             yield return new ValidationResult("Invalid value for RsaPublicKeyModulus, length must be less than 1000.",
                 new[] {"RsaPublicKeyModulus"});
 
         // RsaPublicKeyModulus (string) minLength
-        if (RsaPublicKeyModulus != null && RsaPublicKeyModulus.Length < 1)
+        if (RsaPublicKeyModulus is {Length: < 1})
             yield return new ValidationResult("Invalid value for RsaPublicKeyModulus, length must be greater than 1.",
                 new[] {"RsaPublicKeyModulus"});
 
         // Hash (string) maxLength
-        if (Hash != null && Hash.Length > 40)
+        if (Hash is {Length: > 40})
             yield return new ValidationResult("Invalid value for Hash, length must be less than 40.", new[] {"Hash"});
 
         // Hash (string) minLength
-        if (Hash != null && Hash.Length < 1)
+        if (Hash is {Length: < 1})
             yield return new ValidationResult("Invalid value for Hash, length must be greater than 1.", new[] {"Hash"});
 
         // SubjectAlternativeNames (string) maxLength
-        if (SubjectAlternativeNames != null && SubjectAlternativeNames.Length > 1000)
+        if (SubjectAlternativeNames is {Length: > 1000})
             yield return new ValidationResult(
                 "Invalid value for SubjectAlternativeNames, length must be less than 1000.",
                 new[] {"SubjectAlternativeNames"});
 
         // SubjectAlternativeNames (string) minLength
-        if (SubjectAlternativeNames != null && SubjectAlternativeNames.Length < 1)
+        if (SubjectAlternativeNames is {Length: < 1})
             yield return new ValidationResult(
                 "Invalid value for SubjectAlternativeNames, length must be greater than 1.",
                 new[] {"SubjectAlternativeNames"});

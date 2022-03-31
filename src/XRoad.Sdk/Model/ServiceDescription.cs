@@ -244,23 +244,15 @@ public sealed class ServiceDescription : IEquatable<ServiceDescription>, IValida
         if (Url is {Length: > 255})
             yield return new ValidationResult("Invalid value for Url, length must be less than 255.",
                 new[] {"Url"});
-
         // Url (string) minLength
         if (Url is {Length: < 1})
             yield return new ValidationResult("Invalid value for Url, length must be greater than 1.",
                 new[] {"Url"});
-
         // DisabledNotice (string) maxLength
         if (DisabledNotice is {Length: > 255})
             yield return new ValidationResult("Invalid value for DisabledNotice, length must be less than 255.",
                 new[] {"DisabledNotice"});
-
-        // DisabledNotice (string) minLength
-        // ReSharper disable once PatternIsAlwaysTrueOrFalse
-        if (DisabledNotice is {Length: < 0})
-            yield return new ValidationResult("Invalid value for DisabledNotice, length must be greater than 0.",
-                new[] {"DisabledNotice"});
-
+        // TODO 
         // // RefreshedAt (DateTime) maxLength
         // if (RefreshedAt != null && RefreshedAt.Length > 24)
         // {

@@ -242,7 +242,6 @@ public class Configuration : IReadableConfiguration
     public virtual string TempFolderPath
     {
         get => _tempFolderPath;
-
         set
         {
             if (string.IsNullOrEmpty(value))

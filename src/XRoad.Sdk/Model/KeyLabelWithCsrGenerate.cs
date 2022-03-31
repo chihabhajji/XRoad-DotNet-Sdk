@@ -144,10 +144,5 @@ public class KeyLabelWithCsrGenerate : IEquatable<KeyLabelWithCsrGenerate>, IVal
         if (KeyLabel is {Length: > 255})
             yield return new ValidationResult("Invalid value for KeyLabel, length must be less than 255.",
                 new[] {"KeyLabel"});
-
-        // KeyLabel (string) minLength
-        if (KeyLabel is {Length: < 0})
-            yield return new ValidationResult("Invalid value for KeyLabel, length must be greater than 0.",
-                new[] {"KeyLabel"});
     }
 }

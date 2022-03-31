@@ -107,14 +107,8 @@ public class ServiceDescriptionDisabledNotice : IEquatable<ServiceDescriptionDis
     /// <returns>Validation Result</returns>
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-        // DisabledNotice (string) maxLength
         if (DisabledNotice is {Length: > 255})
             yield return new ValidationResult("Invalid value for DisabledNotice, length must be less than 255.",
-                new[] {"DisabledNotice"});
-
-        // DisabledNotice (string) minLength
-        if (DisabledNotice is {Length: < 0})
-            yield return new ValidationResult("Invalid value for DisabledNotice, length must be greater than 0.",
                 new[] {"DisabledNotice"});
     }
 }

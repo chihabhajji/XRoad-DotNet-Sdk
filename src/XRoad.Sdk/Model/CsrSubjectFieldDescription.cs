@@ -255,20 +255,13 @@ public class CsrSubjectFieldDescription : IEquatable<CsrSubjectFieldDescription>
         // Id (string) minLength
         if (Id is {Length: < 1})
             yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new[] {"Id"});
-
         // Label (string) minLength
         if (Label is {Length: < 1})
             yield return new ValidationResult("Invalid value for Label, length must be greater than 1.",
                 new[] {"Label"});
-
         // LabelKey (string) minLength
         if (LabelKey is {Length: < 1})
             yield return new ValidationResult("Invalid value for LabelKey, length must be greater than 1.",
                 new[] {"LabelKey"});
-
-        // DefaultValue (string) minLength
-        if (DefaultValue is {Length: < 0})
-            yield return new ValidationResult("Invalid value for DefaultValue, length must be greater than 0.",
-                new[] {"DefaultValue"});
     }
 }

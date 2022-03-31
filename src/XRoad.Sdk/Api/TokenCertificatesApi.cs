@@ -582,9 +582,9 @@ public class TokenCertificatesApi : ITokenCertificatesApi
     public TokenCertificatesApi(ISynchronousClient client, IAsynchronousClient asyncClient,
         IReadableConfiguration configuration)
     {
-        Client = client ?? throw new ArgumentNullException(nameof(client),"client");
-        AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient),"asyncClient");
-        Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration),"configuration");
+        Client = client ?? throw new ArgumentNullException(nameof(client));
+        AsynchronousClient = asyncClient ?? throw new ArgumentNullException(nameof(asyncClient));
+        Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         ExceptionFactory = Sdk.Client.Configuration.DefaultExceptionFactory;
     }
 
