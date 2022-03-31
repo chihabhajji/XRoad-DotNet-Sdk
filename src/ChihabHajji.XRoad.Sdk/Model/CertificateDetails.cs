@@ -501,30 +501,30 @@ namespace ChihabHajji.XRoad.Sdk.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubjectCommonName, length must be greater than 1.", new [] { "SubjectCommonName" });
             }
-            // TODO
-            // // NotBefore (DateTime) maxLength
-            // if (this.NotBefore != null && this.NotBefore.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotBefore, length must be less than 24.", new [] { "NotBefore" });
-            // }
-            //
-            // // NotBefore (DateTime) minLength
-            // if (this.NotBefore != null && this.NotBefore.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotBefore, length must be greater than 24.", new [] { "NotBefore" });
-            // }
-            //
-            // // NotAfter (DateTime) maxLength
-            // if (this.NotAfter != null && this.NotAfter.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be less than 24.", new [] { "NotAfter" });
-            // }
-            //
-            // // NotAfter (DateTime) minLength
-            // if (this.NotAfter != null && this.NotAfter.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be greater than 24.", new [] { "NotAfter" });
-            // }
+
+            // NotBefore (DateTime) maxLength
+            if (this.NotBefore != null && this.NotBefore.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotBefore, length must be less than 24.", new [] { "NotBefore" });
+            }
+
+            // NotBefore (DateTime) minLength
+            if (this.NotBefore != null && this.NotBefore.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotBefore, length must be greater than 24.", new [] { "NotBefore" });
+            }
+
+            // NotAfter (DateTime) maxLength
+            if (this.NotAfter != null && this.NotAfter.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be less than 24.", new [] { "NotAfter" });
+            }
+
+            // NotAfter (DateTime) minLength
+            if (this.NotAfter != null && this.NotAfter.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be greater than 24.", new [] { "NotAfter" });
+            }
 
             // Serial (string) maxLength
             if (this.Serial != null && this.Serial.Length > 255)

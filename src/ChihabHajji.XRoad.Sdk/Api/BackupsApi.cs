@@ -11,9 +11,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using ChihabHajji.XRoad.Sdk.Client;
 using ChihabHajji.XRoad.Sdk.Model;
 
@@ -94,7 +95,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filename">filename of the backup</param>
         /// <returns>System.IO.Stream</returns>
-        Stream DownloadBackup(string filename);
+        System.IO.Stream DownloadBackup(string filename);
 
         /// <summary>
         /// download security server backup
@@ -105,7 +106,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filename">filename of the backup</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<Stream> DownloadBackupWithHttpInfo(string filename);
+        ApiResponse<System.IO.Stream> DownloadBackupWithHttpInfo(string filename);
         /// <summary>
         /// get security server backups
         /// </summary>
@@ -156,7 +157,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="ignoreWarnings">If true, any ignorable warnings are ignored. if false (or missing), any warnings cause request to fail. (optional, default to false)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>Backup</returns>
-        Backup UploadBackup(bool? ignoreWarnings = default(bool?), Stream file = default(Stream));
+        Backup UploadBackup(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
         /// upload new backup for the security server
@@ -168,7 +169,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="ignoreWarnings">If true, any ignorable warnings are ignored. if false (or missing), any warnings cause request to fail. (optional, default to false)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>ApiResponse of Backup</returns>
-        ApiResponse<Backup> UploadBackupWithHttpInfo(bool? ignoreWarnings = default(bool?), Stream file = default(Stream));
+        ApiResponse<Backup> UploadBackupWithHttpInfo(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream));
         #endregion Synchronous Operations
     }
 
@@ -187,7 +188,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Backup</returns>
-        Task<Backup> AddBackupAsync(CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Backup> AddBackupAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// add new backup for the security server
@@ -198,7 +199,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Backup)</returns>
-        Task<ApiResponse<Backup>> AddBackupWithHttpInfoAsync(CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Backup>> AddBackupWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// add new backup for the security server and return extra backup state
         /// </summary>
@@ -208,7 +209,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackupExt</returns>
-        Task<BackupExt> AddBackupExtAsync(CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<BackupExt> AddBackupExtAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// add new backup for the security server and return extra backup state
@@ -219,7 +220,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackupExt)</returns>
-        Task<ApiResponse<BackupExt>> AddBackupExtWithHttpInfoAsync(CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackupExt>> AddBackupExtWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// delete security server backup
         /// </summary>
@@ -230,7 +231,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        Task DeleteBackupAsync(string filename, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteBackupAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// delete security server backup
@@ -242,7 +243,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> DeleteBackupWithHttpInfoAsync(string filename, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBackupWithHttpInfoAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// download security server backup
         /// </summary>
@@ -253,7 +254,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        Task<Stream> DownloadBackupAsync(string filename, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadBackupAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// download security server backup
@@ -265,7 +266,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        Task<ApiResponse<Stream>> DownloadBackupWithHttpInfoAsync(string filename, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadBackupWithHttpInfoAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// get security server backups
         /// </summary>
@@ -275,7 +276,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Backup&gt;</returns>
-        Task<List<Backup>> GetBackupsAsync(CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<List<Backup>> GetBackupsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// get security server backups
@@ -286,7 +287,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Backup&gt;)</returns>
-        Task<ApiResponse<List<Backup>>> GetBackupsWithHttpInfoAsync(CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Backup>>> GetBackupsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// restore security server configuration from backup
         /// </summary>
@@ -297,7 +298,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokensLoggedOut</returns>
-        Task<TokensLoggedOut> RestoreBackupAsync(string filename, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<TokensLoggedOut> RestoreBackupAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// restore security server configuration from backup
@@ -309,7 +310,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokensLoggedOut)</returns>
-        Task<ApiResponse<TokensLoggedOut>> RestoreBackupWithHttpInfoAsync(string filename, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TokensLoggedOut>> RestoreBackupWithHttpInfoAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// upload new backup for the security server
         /// </summary>
@@ -321,7 +322,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="file"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Backup</returns>
-        Task<Backup> UploadBackupAsync(bool? ignoreWarnings = default(bool?), Stream file = default(Stream), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Backup> UploadBackupAsync(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// upload new backup for the security server
@@ -334,7 +335,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="file"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Backup)</returns>
-        Task<ApiResponse<Backup>> UploadBackupWithHttpInfoAsync(bool? ignoreWarnings = default, Stream file = default, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Backup>> UploadBackupWithHttpInfoAsync(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -349,10 +350,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    // ReSharper disable once PartialTypeWithSinglePart
     public partial class BackupsApi : IBackupsApi
     {
-        private ExceptionFactory _exceptionFactory = (_, _) => null;
+        private ChihabHajji.XRoad.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupsApi"/> class.
@@ -368,13 +368,13 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <returns></returns>
         public BackupsApi(string basePath)
         {
-            this.Configuration = Sdk.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+            this.Configuration = ChihabHajji.XRoad.Sdk.Client.Configuration.MergeConfigurations(
+                ChihabHajji.XRoad.Sdk.Client.GlobalConfiguration.Instance,
+                new ChihabHajji.XRoad.Sdk.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
-            this.ExceptionFactory = Sdk.Client.Configuration.DefaultExceptionFactory;
+            this.Client = new ChihabHajji.XRoad.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new ChihabHajji.XRoad.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            this.ExceptionFactory = ChihabHajji.XRoad.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -383,17 +383,17 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public BackupsApi(Configuration configuration)
+        public BackupsApi(ChihabHajji.XRoad.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Configuration = Sdk.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+            this.Configuration = ChihabHajji.XRoad.Sdk.Client.Configuration.MergeConfigurations(
+                ChihabHajji.XRoad.Sdk.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
-            ExceptionFactory = Sdk.Client.Configuration.DefaultExceptionFactory;
+            this.Client = new ChihabHajji.XRoad.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new ChihabHajji.XRoad.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            ExceptionFactory = ChihabHajji.XRoad.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -403,7 +403,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public BackupsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public BackupsApi(ChihabHajji.XRoad.Sdk.Client.ISynchronousClient client, ChihabHajji.XRoad.Sdk.Client.IAsynchronousClient asyncClient, ChihabHajji.XRoad.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -412,18 +412,18 @@ namespace ChihabHajji.XRoad.Sdk.Api
             this.Client = client;
             this.AsynchronousClient = asyncClient;
             this.Configuration = configuration;
-            this.ExceptionFactory = Sdk.Client.Configuration.DefaultExceptionFactory;
+            this.ExceptionFactory = ChihabHajji.XRoad.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public ChihabHajji.XRoad.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public ChihabHajji.XRoad.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -438,12 +438,12 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public ChihabHajji.XRoad.Sdk.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public ChihabHajji.XRoad.Sdk.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -453,7 +453,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 }
                 return _exceptionFactory;
             }
-            set => _exceptionFactory = value;
+            set { _exceptionFactory = value; }
         }
 
         /// <summary>
@@ -463,7 +463,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <returns>Backup</returns>
         public Backup AddBackup()
         {
-            var localVarResponse = AddBackupWithHttpInfo();
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup> localVarResponse = AddBackupWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -472,27 +472,46 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// </summary>
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Backup</returns>
-        public ApiResponse<Backup> AddBackupWithHttpInfo()
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup> AddBackupWithHttpInfo()
         {
-            var localVarRequestOptions = new RequestOptions();
-            var contentTypes = Array.Empty<string>();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
             // to determine the Accept header
-            var accepts = new[] {"application/json"};
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
+            {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-                localVarRequestOptions.HeaderParameters.Add("Authorization",
-                    this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
             // make the HTTP request
             var localVarResponse = this.Client.Post<Backup>("/backups", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory == null) return localVarResponse;
-            if (this.ExceptionFactory("AddBackup", localVarResponse) is { } exception)
+            if (this.ExceptionFactory != null)
             {
-                throw exception;
+                Exception _exception = this.ExceptionFactory("AddBackup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -504,9 +523,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Backup</returns>
-        public async Task<Backup> AddBackupAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Backup> AddBackupAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<Backup> localVarResponse = await AddBackupWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup> localVarResponse = await AddBackupWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -516,35 +535,50 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Backup)</returns>
-        public async Task<ApiResponse<Backup>> AddBackupWithHttpInfoAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup>> AddBackupWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            var localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
-            var contentTypes = new string[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            var accepts = new[] {"application/json"};
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
+            {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-                localVarRequestOptions.HeaderParameters.Add("Authorization",
-                    this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<Backup>("/backups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-            if (this.ExceptionFactory == null) return localVarResponse;
-            if (this.ExceptionFactory("AddBackup", localVarResponse) is { } exception)
-                throw exception;
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddBackup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
             return localVarResponse;
         }
 
@@ -553,38 +587,58 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// </summary>
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>BackupExt</returns>
-        public BackupExt AddBackupExt() => AddBackupExtWithHttpInfo().Data;
+        public BackupExt AddBackupExt()
+        {
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<BackupExt> localVarResponse = AddBackupExtWithHttpInfo();
+            return localVarResponse.Data;
+        }
 
         /// <summary>
         /// add new backup for the security server and return extra backup state &lt;h3&gt;Adds security server backup to the system.&lt;/h3&gt; &lt;p&gt;This endpoint can also return metadata in the error response. The metadata array contains the output of a failed backup generation script.&lt;/p&gt;
         /// </summary>
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of BackupExt</returns>
-        public ApiResponse<BackupExt> AddBackupExtWithHttpInfo()
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<BackupExt> AddBackupExtWithHttpInfo()
         {
-            var localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
-            var contentTypes = new string[] { };
+            string[] _contentTypes = new string[] {
+            };
 
             // to determine the Accept header
-            var accepts = new[] {"application/json"};
-            if (accepts == null) throw new ArgumentNullException(nameof(accepts));
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
+            {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-                localVarRequestOptions.HeaderParameters.Add("Authorization",
-                    this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
             // make the HTTP request
             var localVarResponse = this.Client.Post<BackupExt>("/backups/ext", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory == null) return localVarResponse;
-            if (this.ExceptionFactory("AddBackupExt", localVarResponse) is { } exception)
-                throw exception;
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddBackupExt", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
 
             return localVarResponse;
         }
@@ -595,9 +649,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackupExt</returns>
-        public async Task<BackupExt> AddBackupExtAsync(CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<BackupExt> AddBackupExtAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await AddBackupExtWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<BackupExt> localVarResponse = await AddBackupExtWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -607,20 +661,30 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackupExt)</returns>
-        public async Task<ApiResponse<BackupExt>> AddBackupExtWithHttpInfoAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<BackupExt>> AddBackupExtWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            var localVarRequestOptions = new RequestOptions();
-            var contentTypes = new string[] { };
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
             // to determine the Accept header
-            var accepts = new[] {"application/json"};
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
+            {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
 
             // authentication (ApiKeyAuth) required
@@ -661,15 +725,15 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filename">filename of the backup</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteBackupWithHttpInfo(string filename)
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<Object> DeleteBackupWithHttpInfo(string filename)
         {
             // verify the required parameter 'filename' is set
             if (filename == null)
             {
-                throw new ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DeleteBackup");
+                throw new ChihabHajji.XRoad.Sdk.Client.ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DeleteBackup");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -678,19 +742,19 @@ namespace ChihabHajji.XRoad.Sdk.Api
             string[] _accepts = new string[] {
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("filename", ClientUtils.ParameterToString(filename)); // path parameter
+            localVarRequestOptions.PathParameters.Add("filename", ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToString(filename)); // path parameter
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -719,7 +783,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async Task DeleteBackupAsync(string filename, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task DeleteBackupAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteBackupWithHttpInfoAsync(filename, cancellationToken).ConfigureAwait(false);
         }
@@ -731,16 +795,16 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> DeleteBackupWithHttpInfoAsync(string filename, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<Object>> DeleteBackupWithHttpInfoAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'filename' is set
             if (filename == null)
             {
-                throw new ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DeleteBackup");
+                throw new ChihabHajji.XRoad.Sdk.Client.ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DeleteBackup");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -749,19 +813,19 @@ namespace ChihabHajji.XRoad.Sdk.Api
             string[] _accepts = new string[] {
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("filename", ClientUtils.ParameterToString(filename)); // path parameter
+            localVarRequestOptions.PathParameters.Add("filename", ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToString(filename)); // path parameter
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -790,9 +854,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filename">filename of the backup</param>
         /// <returns>System.IO.Stream</returns>
-        public Stream DownloadBackup(string filename)
+        public System.IO.Stream DownloadBackup(string filename)
         {
-            ApiResponse<Stream> localVarResponse = DownloadBackupWithHttpInfo(filename);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadBackupWithHttpInfo(filename);
             return localVarResponse.Data;
         }
 
@@ -802,15 +866,15 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filename">filename of the backup</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public ApiResponse<Stream> DownloadBackupWithHttpInfo(string filename)
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<System.IO.Stream> DownloadBackupWithHttpInfo(string filename)
         {
             // verify the required parameter 'filename' is set
             if (filename == null)
             {
-                throw new ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DownloadBackup");
+                throw new ChihabHajji.XRoad.Sdk.Client.ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DownloadBackup");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -820,19 +884,19 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/octet-stream"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("filename", ClientUtils.ParameterToString(filename)); // path parameter
+            localVarRequestOptions.PathParameters.Add("filename", ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToString(filename)); // path parameter
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -841,7 +905,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Stream>("/backups/{filename}/download", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/backups/{filename}/download", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadBackup", localVarResponse);
@@ -861,9 +925,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async Task<Stream> DownloadBackupAsync(string filename, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadBackupAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<Stream> localVarResponse = await DownloadBackupWithHttpInfoAsync(filename, cancellationToken).ConfigureAwait(false);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadBackupWithHttpInfoAsync(filename, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -874,16 +938,16 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async Task<ApiResponse<Stream>> DownloadBackupWithHttpInfoAsync(string filename, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadBackupWithHttpInfoAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'filename' is set
             if (filename == null)
             {
-                throw new ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DownloadBackup");
+                throw new ChihabHajji.XRoad.Sdk.Client.ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->DownloadBackup");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -893,19 +957,19 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/octet-stream"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("filename", ClientUtils.ParameterToString(filename)); // path parameter
+            localVarRequestOptions.PathParameters.Add("filename", ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToString(filename)); // path parameter
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -914,7 +978,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Stream>("/backups/{filename}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/backups/{filename}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -935,7 +999,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <returns>List&lt;Backup&gt;</returns>
         public List<Backup> GetBackups()
         {
-            ApiResponse<List<Backup>> localVarResponse = GetBackupsWithHttpInfo();
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<List<Backup>> localVarResponse = GetBackupsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -944,9 +1008,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// </summary>
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Backup&gt;</returns>
-        public ApiResponse<List<Backup>> GetBackupsWithHttpInfo()
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<List<Backup>> GetBackupsWithHttpInfo()
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -956,13 +1020,13 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -995,9 +1059,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Backup&gt;</returns>
-        public async Task<List<Backup>> GetBackupsAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<List<Backup>> GetBackupsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<List<Backup>> localVarResponse = await GetBackupsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<List<Backup>> localVarResponse = await GetBackupsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1007,10 +1071,10 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Backup&gt;)</returns>
-        public async Task<ApiResponse<List<Backup>>> GetBackupsWithHttpInfoAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<List<Backup>>> GetBackupsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1020,13 +1084,13 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1062,7 +1126,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <returns>TokensLoggedOut</returns>
         public TokensLoggedOut RestoreBackup(string filename)
         {
-            ApiResponse<TokensLoggedOut> localVarResponse = RestoreBackupWithHttpInfo(filename);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<TokensLoggedOut> localVarResponse = RestoreBackupWithHttpInfo(filename);
             return localVarResponse.Data;
         }
 
@@ -1072,15 +1136,15 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <exception cref="ChihabHajji.XRoad.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filename">filename of the backup</param>
         /// <returns>ApiResponse of TokensLoggedOut</returns>
-        public ApiResponse<TokensLoggedOut> RestoreBackupWithHttpInfo(string filename)
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<TokensLoggedOut> RestoreBackupWithHttpInfo(string filename)
         {
             // verify the required parameter 'filename' is set
             if (filename == null)
             {
-                throw new ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->RestoreBackup");
+                throw new ChihabHajji.XRoad.Sdk.Client.ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->RestoreBackup");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1090,19 +1154,19 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("filename", ClientUtils.ParameterToString(filename)); // path parameter
+            localVarRequestOptions.PathParameters.Add("filename", ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToString(filename)); // path parameter
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1131,9 +1195,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokensLoggedOut</returns>
-        public async Task<TokensLoggedOut> RestoreBackupAsync(string filename, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<TokensLoggedOut> RestoreBackupAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TokensLoggedOut> localVarResponse = await RestoreBackupWithHttpInfoAsync(filename, cancellationToken).ConfigureAwait(false);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<TokensLoggedOut> localVarResponse = await RestoreBackupWithHttpInfoAsync(filename, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1144,16 +1208,16 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="filename">filename of the backup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokensLoggedOut)</returns>
-        public async Task<ApiResponse<TokensLoggedOut>> RestoreBackupWithHttpInfoAsync(string filename, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<TokensLoggedOut>> RestoreBackupWithHttpInfoAsync(string filename, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'filename' is set
             if (filename == null)
             {
-                throw new ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->RestoreBackup");
+                throw new ChihabHajji.XRoad.Sdk.Client.ApiException(400, "Missing required parameter 'filename' when calling BackupsApi->RestoreBackup");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1163,19 +1227,19 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("filename", ClientUtils.ParameterToString(filename)); // path parameter
+            localVarRequestOptions.PathParameters.Add("filename", ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToString(filename)); // path parameter
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1205,9 +1269,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="ignoreWarnings">If true, any ignorable warnings are ignored. if false (or missing), any warnings cause request to fail. (optional, default to false)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>Backup</returns>
-        public Backup UploadBackup(bool? ignoreWarnings = default(bool?), Stream file = default(Stream))
+        public Backup UploadBackup(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream))
         {
-            ApiResponse<Backup> localVarResponse = UploadBackupWithHttpInfo(ignoreWarnings, file);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup> localVarResponse = UploadBackupWithHttpInfo(ignoreWarnings, file);
             return localVarResponse.Data;
         }
 
@@ -1218,9 +1282,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="ignoreWarnings">If true, any ignorable warnings are ignored. if false (or missing), any warnings cause request to fail. (optional, default to false)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>ApiResponse of Backup</returns>
-        public ApiResponse<Backup> UploadBackupWithHttpInfo(bool? ignoreWarnings = default(bool?), Stream file = default(Stream))
+        public ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup> UploadBackupWithHttpInfo(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream))
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "multipart/form-data"
@@ -1231,13 +1295,13 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1245,7 +1309,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
 
             if (ignoreWarnings != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ignore_warnings", ignoreWarnings));
+                localVarRequestOptions.QueryParameters.Add(ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ignore_warnings", ignoreWarnings));
             }
             if (file != null)
             {
@@ -1280,9 +1344,9 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="file"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Backup</returns>
-        public async Task<Backup> UploadBackupAsync(bool? ignoreWarnings = default(bool?), Stream file = default(Stream), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Backup> UploadBackupAsync(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<Backup> localVarResponse = await UploadBackupWithHttpInfoAsync(ignoreWarnings, file, cancellationToken).ConfigureAwait(false);
+            ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup> localVarResponse = await UploadBackupWithHttpInfoAsync(ignoreWarnings, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1294,10 +1358,10 @@ namespace ChihabHajji.XRoad.Sdk.Api
         /// <param name="file"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Backup)</returns>
-        public async Task<ApiResponse<Backup>> UploadBackupWithHttpInfoAsync(bool? ignoreWarnings = default(bool?), Stream file = default(Stream), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ChihabHajji.XRoad.Sdk.Client.ApiResponse<Backup>> UploadBackupWithHttpInfoAsync(bool? ignoreWarnings = default(bool?), System.IO.Stream file = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            ChihabHajji.XRoad.Sdk.Client.RequestOptions localVarRequestOptions = new ChihabHajji.XRoad.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "multipart/form-data"
@@ -1308,13 +1372,13 @@ namespace ChihabHajji.XRoad.Sdk.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ChihabHajji.XRoad.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1322,7 +1386,7 @@ namespace ChihabHajji.XRoad.Sdk.Api
 
             if (ignoreWarnings != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ignore_warnings", ignoreWarnings));
+                localVarRequestOptions.QueryParameters.Add(ChihabHajji.XRoad.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ignore_warnings", ignoreWarnings));
             }
             if (file != null)
             {

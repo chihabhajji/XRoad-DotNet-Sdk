@@ -162,18 +162,18 @@ namespace ChihabHajji.XRoad.Sdk.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
             }
-            // TODO
-            // // CreatedAt (DateTime) maxLength
-            // if (this.CreatedAt != null && this.CreatedAt.Hour > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedAt, length must be less than 24.", new [] { "CreatedAt" });
-            // }
-            //
-            // // CreatedAt (DateTime) minLength
-            // if (this.CreatedAt != null && this.CreatedAt.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedAt, length must be greater than 24.", new [] { "CreatedAt" });
-            // }
+
+            // CreatedAt (DateTime) maxLength
+            if (this.CreatedAt != null && this.CreatedAt.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedAt, length must be less than 24.", new [] { "CreatedAt" });
+            }
+
+            // CreatedAt (DateTime) minLength
+            if (this.CreatedAt != null && this.CreatedAt.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedAt, length must be greater than 24.", new [] { "CreatedAt" });
+            }
 
             yield break;
         }

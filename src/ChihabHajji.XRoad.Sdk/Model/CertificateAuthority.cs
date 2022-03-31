@@ -299,18 +299,18 @@ namespace ChihabHajji.XRoad.Sdk.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IssuerDistinguishedName, length must be greater than 1.", new [] { "IssuerDistinguishedName" });
             }
-            // TODO 
+
             // NotAfter (DateTime) maxLength
-            // if (this.NotAfter != null && this.NotAfter.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be less than 24.", new [] { "NotAfter" });
-            // }
-            //
-            // // NotAfter (DateTime) minLength
-            // if (this.NotAfter != null && this.NotAfter.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be greater than 24.", new [] { "NotAfter" });
-            // }
+            if (this.NotAfter != null && this.NotAfter.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be less than 24.", new [] { "NotAfter" });
+            }
+
+            // NotAfter (DateTime) minLength
+            if (this.NotAfter != null && this.NotAfter.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAfter, length must be greater than 24.", new [] { "NotAfter" });
+            }
 
             // Path (string) minLength
             if (this.Path != null && this.Path.Length < 1)

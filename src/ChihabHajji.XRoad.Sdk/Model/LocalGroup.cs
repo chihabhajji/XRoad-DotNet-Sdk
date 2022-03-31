@@ -269,18 +269,18 @@ namespace ChihabHajji.XRoad.Sdk.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MemberCount, must be a value greater than or equal to 0.", new [] { "MemberCount" });
             }
-            // TODO
-            // // UpdatedAt (DateTime) maxLength
-            // if (this.UpdatedAt != null && this.UpdatedAt.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UpdatedAt, length must be less than 24.", new [] { "UpdatedAt" });
-            // }
-            //
-            // // UpdatedAt (DateTime) minLength
-            // if (this.UpdatedAt != null && this.UpdatedAt.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UpdatedAt, length must be greater than 24.", new [] { "UpdatedAt" });
-            // }
+
+            // UpdatedAt (DateTime) maxLength
+            if (this.UpdatedAt != null && this.UpdatedAt.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UpdatedAt, length must be less than 24.", new [] { "UpdatedAt" });
+            }
+
+            // UpdatedAt (DateTime) minLength
+            if (this.UpdatedAt != null && this.UpdatedAt.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UpdatedAt, length must be greater than 24.", new [] { "UpdatedAt" });
+            }
 
             yield break;
         }

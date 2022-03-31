@@ -296,18 +296,18 @@ namespace ChihabHajji.XRoad.Sdk.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisabledNotice, length must be greater than 0.", new [] { "DisabledNotice" });
             }
-            // TODO
-            // // RefreshedAt (DateTime) maxLength
-            // if (this.RefreshedAt != null && this.RefreshedAt.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RefreshedAt, length must be less than 24.", new [] { "RefreshedAt" });
-            // }
-            //
-            // // RefreshedAt (DateTime) minLength
-            // if (this.RefreshedAt != null && this.RefreshedAt.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RefreshedAt, length must be greater than 24.", new [] { "RefreshedAt" });
-            // }
+
+            // RefreshedAt (DateTime) maxLength
+            if (this.RefreshedAt != null && this.RefreshedAt.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RefreshedAt, length must be less than 24.", new [] { "RefreshedAt" });
+            }
+
+            // RefreshedAt (DateTime) minLength
+            if (this.RefreshedAt != null && this.RefreshedAt.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RefreshedAt, length must be greater than 24.", new [] { "RefreshedAt" });
+            }
 
             // ClientId (string) maxLength
             if (this.ClientId != null && this.ClientId.Length > 255)

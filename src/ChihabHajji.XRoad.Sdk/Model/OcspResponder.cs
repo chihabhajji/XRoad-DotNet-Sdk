@@ -223,30 +223,30 @@ namespace ChihabHajji.XRoad.Sdk.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }
-            // TODO
-            // // PrevUpdateAt (DateTime) maxLength
-            // if (this.PrevUpdateAt != null && this.PrevUpdateAt.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrevUpdateAt, length must be less than 24.", new [] { "PrevUpdateAt" });
-            // }
-            //
-            // // PrevUpdateAt (DateTime) minLength
-            // if (this.PrevUpdateAt != null && this.PrevUpdateAt.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrevUpdateAt, length must be greater than 24.", new [] { "PrevUpdateAt" });
-            // }
-            //
-            // // NextUpdateAt (DateTime) maxLength
-            // if (this.NextUpdateAt != null && this.NextUpdateAt.Length > 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextUpdateAt, length must be less than 24.", new [] { "NextUpdateAt" });
-            // }
-            //
-            // // NextUpdateAt (DateTime) minLength
-            // if (this.NextUpdateAt != null && this.NextUpdateAt.Length < 24)
-            // {
-            //     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextUpdateAt, length must be greater than 24.", new [] { "NextUpdateAt" });
-            // }
+
+            // PrevUpdateAt (DateTime) maxLength
+            if (this.PrevUpdateAt != null && this.PrevUpdateAt.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrevUpdateAt, length must be less than 24.", new [] { "PrevUpdateAt" });
+            }
+
+            // PrevUpdateAt (DateTime) minLength
+            if (this.PrevUpdateAt != null && this.PrevUpdateAt.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrevUpdateAt, length must be greater than 24.", new [] { "PrevUpdateAt" });
+            }
+
+            // NextUpdateAt (DateTime) maxLength
+            if (this.NextUpdateAt != null && this.NextUpdateAt.Length > 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextUpdateAt, length must be less than 24.", new [] { "NextUpdateAt" });
+            }
+
+            // NextUpdateAt (DateTime) minLength
+            if (this.NextUpdateAt != null && this.NextUpdateAt.Length < 24)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextUpdateAt, length must be greater than 24.", new [] { "NextUpdateAt" });
+            }
 
             yield break;
         }

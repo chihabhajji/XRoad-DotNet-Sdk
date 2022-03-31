@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChihabHajji.XRoad.Sdk", "src\ChihabHajji.XRoad.Sdk\ChihabHajji.XRoad.Sdk.csproj", "{00DD80C6-B2E7-44C5-9916-524F055257AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChihabHajji.XRoad.Sdk", "src\ChihabHajji.XRoad.Sdk\ChihabHajji.XRoad.Sdk.csproj", "{F3C0351A-E6EB-45CF-9C39-C39480EB0598}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChihabHajji.XRoad.Sdk.Test", "src\ChihabHajji.XRoad.Sdk.Test\ChihabHajji.XRoad.Sdk.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{00DD80C6-B2E7-44C5-9916-524F055257AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00DD80C6-B2E7-44C5-9916-524F055257AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00DD80C6-B2E7-44C5-9916-524F055257AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00DD80C6-B2E7-44C5-9916-524F055257AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3C0351A-E6EB-45CF-9C39-C39480EB0598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C0351A-E6EB-45CF-9C39-C39480EB0598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C0351A-E6EB-45CF-9C39-C39480EB0598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C0351A-E6EB-45CF-9C39-C39480EB0598}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
