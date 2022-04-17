@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// Request to add client. Carries a Client and ignore warnings parameter
@@ -29,5 +29,4 @@ public class ClientAdd
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

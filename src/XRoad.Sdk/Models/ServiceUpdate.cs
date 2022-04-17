@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// object for updating a service or all services within service description
@@ -64,5 +64,4 @@ public class ServiceUpdate
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

@@ -3,7 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 [GeneratedCode("NSwag", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v13.0.0.0))")]
 public class FileResponse : IDisposable
@@ -22,7 +22,8 @@ public class FileResponse : IDisposable
         get { return StatusCode == 206; }
     }
 
-    public FileResponse(int statusCode, IReadOnlyDictionary<string, IEnumerable<string>> headers, Stream stream, IDisposable client, IDisposable response)
+    public FileResponse(int statusCode, IReadOnlyDictionary<string, IEnumerable<string>> headers, Stream stream,
+        IDisposable client, IDisposable response)
     {
         StatusCode = statusCode;
         Headers = headers;

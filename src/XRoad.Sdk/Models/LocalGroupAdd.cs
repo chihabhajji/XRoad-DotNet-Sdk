@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// model for adding a new LocalGroup
@@ -35,5 +35,4 @@ public class LocalGroupAdd
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

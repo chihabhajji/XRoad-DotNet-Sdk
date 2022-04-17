@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// request object for updating a service description url or service code
@@ -30,7 +30,8 @@ public class ServiceDescriptionUpdate
     /// <summary>
     /// new service code for REST service
     /// </summary>
-    [JsonProperty("new_rest_service_code", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("new_rest_service_code", Required = Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     [StringLength(255, MinimumLength = 1)]
     public string New_rest_service_code { get; set; }
 
@@ -53,5 +54,4 @@ public class ServiceDescriptionUpdate
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

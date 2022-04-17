@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// connection type
@@ -23,5 +23,4 @@ public class ConnectionTypeWrapper
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

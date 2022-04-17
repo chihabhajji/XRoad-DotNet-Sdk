@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// response that tells if hsm tokens were logged out during the restore process
@@ -13,7 +13,8 @@ public class TokensLoggedOut
     /// <summary>
     /// whether any hsm tokens were logged out during the restore process
     /// </summary>
-    [JsonProperty("hsm_tokens_logged_out", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("hsm_tokens_logged_out", Required = Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     public bool Hsm_tokens_logged_out { get; set; }
 
     private IDictionary<string, object> _additionalProperties = new Dictionary<string, object>();
@@ -24,5 +25,4 @@ public class TokensLoggedOut
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

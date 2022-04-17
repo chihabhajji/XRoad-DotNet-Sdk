@@ -1,7 +1,7 @@
 ﻿using System.CodeDom.Compiler;
 using System.Runtime.Serialization;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// timestamping status
@@ -9,9 +9,7 @@ namespace XRoad.Sdk;
 [GeneratedCode("NJsonSchema", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v13.0.0.0))")]
 public enum TimestampingStatus
 {
-
-    [EnumMember(Value = @"SUCCESS")]
-    SUCCESS = 0,
+    [EnumMember(Value = @"SUCCESS")] SUCCESS = 0,
 
     [EnumMember(Value = @"ERROR_CODE_TIMESTAMP_REQUEST_TIMED_OUT")]
     ERROR_CODE_TIMESTAMP_REQUEST_TIMED_OUT = 1,
@@ -25,7 +23,5 @@ public enum TimestampingStatus
     [EnumMember(Value = @"ERROR_CODE_INTERNAL")]
     ERROR_CODE_INTERNAL = 4,
 
-    [EnumMember(Value = @"UNKNOWN")]
-    UNKNOWN = 5,
-
+    [EnumMember(Value = @"UNKNOWN")] UNKNOWN = 5,
 }

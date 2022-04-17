@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// x-road client
@@ -65,7 +65,8 @@ public class Client
     /// <summary>
     /// if this client has a valid (registered and with good OCSP response) sign cert stored on this security server
     /// </summary>
-    [JsonProperty("has_valid_local_sign_cert", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("has_valid_local_sign_cert", Required = Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     public bool Has_valid_local_sign_cert { get; set; }
 
     [JsonProperty("connection_type", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -84,5 +85,4 @@ public class Client
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

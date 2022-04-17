@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// object that contains a code identifier and possibly collection of associated metadata or validation errors. Used to relay error and warning information.
@@ -38,5 +38,4 @@ public class CodeWithDetails
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

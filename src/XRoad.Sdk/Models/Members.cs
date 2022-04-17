@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// Request object containing an array of member ids. The id must be an X-Road member id or subsystem id
@@ -24,5 +24,4 @@ public class Members
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

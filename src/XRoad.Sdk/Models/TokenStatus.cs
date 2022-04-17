@@ -1,7 +1,7 @@
 ﻿using System.CodeDom.Compiler;
 using System.Runtime.Serialization;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// token type
@@ -9,9 +9,7 @@ namespace XRoad.Sdk;
 [GeneratedCode("NJsonSchema", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v13.0.0.0))")]
 public enum TokenStatus
 {
-
-    [EnumMember(Value = @"OK")]
-    OK = 0,
+    [EnumMember(Value = @"OK")] OK = 0,
 
     [EnumMember(Value = @"USER_PIN_LOCKED")]
     USER_PIN_LOCKED = 1,
@@ -33,5 +31,4 @@ public enum TokenStatus
 
     [EnumMember(Value = @"NOT_INITIALIZED")]
     NOT_INITIALIZED = 7,
-
 }

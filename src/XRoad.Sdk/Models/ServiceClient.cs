@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// service client. May be a subsystem, local group, or a global group
@@ -35,7 +35,8 @@ public class ServiceClient
     [StringLength(255, MinimumLength = 1)]
     public string Local_group_code { get; set; }
 
-    [JsonProperty("service_client_type", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("service_client_type", Required = Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     [JsonConverter(typeof(StringEnumConverter))]
     public ServiceClientType Service_client_type { get; set; }
 
@@ -53,5 +54,4 @@ public class ServiceClient
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

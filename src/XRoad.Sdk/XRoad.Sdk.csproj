@@ -1,21 +1,44 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <TargetFramework>net6.0</TargetFramework>
         <PackageId>XRoad.Sdk</PackageId>
         <OutputType>Library</OutputType>
-        <Authors>OpenAPI</Authors>
-        <Company>OpenAPI</Company>
+        <Authors>ChihabHajji</Authors>
+        <Company>ESPRIT</Company>
         <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-        <Description>A library generated from a OpenAPI doc</Description>
-        <Copyright>No Copyright</Copyright>
-        <Version>1.0.0</Version>
-        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ChihabHajji.XRoad.Sdk.xml</DocumentationFile>
-        <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+        <Description>An XRoad SDK generated from a OpenAPI and modified, supports xroad 7.0.2</Description>
+        <Copyright>GNU GPLv3</Copyright>
+        <Version>1.0.1</Version>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\XRoad.Sdk.xml</DocumentationFile>
+        <RepositoryUrl>https://github.com/chihabhajji/XRoad-DotNet-Sdk.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+        <PackageIcon>x-road-logo.png</PackageIcon>
+        <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>XRoad;X-Road;XRoad Api;X-Road Api</PackageTags>
+        <Description>This client library enables working with the X-Road security server via HTTP calls.</Description>
+        <Title>XRoad Security Server Client </Title>
+        <AssemblyVersion>1.1</AssemblyVersion>
+        <FileVersion>1.1</FileVersion>
+        <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\x-road-logo.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="JsonSubTypes" Version="1.8.0" />

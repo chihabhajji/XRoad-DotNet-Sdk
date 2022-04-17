@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// object returned in error cases
@@ -33,5 +33,4 @@ public class ErrorInfo
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// member's name
@@ -21,5 +21,4 @@ public class MemberName
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

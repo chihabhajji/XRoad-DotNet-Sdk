@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// object describing input fields for CSR subject DN info
@@ -21,21 +21,24 @@ public class CsrSubjectFieldDescription
     /// <summary>
     /// label of the field, used to display the field in the user interface
     /// </summary>
-    [JsonProperty("label", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("label", Required = Newtonsoft.Json.Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     [StringLength(int.MaxValue, MinimumLength = 1)]
     public string Label { get; set; }
 
     /// <summary>
     /// localization key for label of the field, used to display the field in the user interface
     /// </summary>
-    [JsonProperty("label_key", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("label_key", Required = Newtonsoft.Json.Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     [StringLength(int.MaxValue, MinimumLength = 1)]
     public string Label_key { get; set; }
 
     /// <summary>
     /// the default value of the field. Can be empty.
     /// </summary>
-    [JsonProperty("default_value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("default_value", Required = Newtonsoft.Json.Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     [StringLength(int.MaxValue)]
     public string Default_value { get; set; }
 
@@ -65,5 +68,4 @@ public class CsrSubjectFieldDescription
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

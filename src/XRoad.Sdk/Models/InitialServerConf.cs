@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// security server initial configuration
@@ -28,7 +28,8 @@ public class InitialServerConf
     /// <summary>
     /// security server code
     /// </summary>
-    [JsonProperty("security_server_code", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("security_server_code", Required = Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     [StringLength(255, MinimumLength = 1)]
     public string Security_server_code { get; set; }
 
@@ -53,5 +54,4 @@ public class InitialServerConf
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

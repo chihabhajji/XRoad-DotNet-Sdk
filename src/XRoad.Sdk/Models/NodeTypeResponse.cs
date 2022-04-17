@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// Response object containing the node type of the Security Server
@@ -25,5 +25,4 @@ public class NodeTypeResponse
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

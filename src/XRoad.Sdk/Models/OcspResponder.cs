@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// OCSP responder diagnostics
@@ -54,5 +54,4 @@ public class OcspResponder
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

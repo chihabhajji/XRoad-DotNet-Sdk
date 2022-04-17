@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// approved certificate authority information. Only for top CAs.
@@ -77,5 +77,4 @@ public class CertificateAuthority
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

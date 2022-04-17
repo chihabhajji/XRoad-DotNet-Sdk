@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// request object containing service description url, service code and type
@@ -46,5 +46,4 @@ public class ServiceDescriptionAdd
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

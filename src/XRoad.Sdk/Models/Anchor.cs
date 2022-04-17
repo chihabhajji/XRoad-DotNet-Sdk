@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 #pragma warning disable 108, 114, 472, 1573, 1591, 8073, 3016, 8603
 /// <summary>
@@ -37,5 +37,4 @@ public class Anchor
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

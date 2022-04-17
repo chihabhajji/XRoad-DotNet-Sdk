@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// WSDL/OPENAPI3/REST service
@@ -79,5 +79,4 @@ public class ServiceDescription
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

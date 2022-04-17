@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// Certificate that is stored in a Token (auth or sign cert). Also includes the possible actions that can be done to this object, e.g DELETE (only for cert related operations and does not consider user authorization).
@@ -46,7 +46,8 @@ public class TokenCertificate
     [JsonConverter(typeof(StringEnumConverter))]
     public CertificateStatus Status { get; set; }
 
-    [JsonProperty("possible_actions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
+    [JsonProperty("possible_actions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore,
+        ItemConverterType = typeof(StringEnumConverter))]
     public PossibleActions Possible_actions { get; set; }
 
     private IDictionary<string, object> _additionalProperties = new Dictionary<string, object>();
@@ -57,5 +58,4 @@ public class TokenCertificate
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

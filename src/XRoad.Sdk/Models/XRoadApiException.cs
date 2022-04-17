@@ -11,14 +11,15 @@ using System.Collections.Generic;
 #pragma warning disable 3016 // Disable "CS3016 Arrays as attribute arguments is not CLS-compliant"
 #pragma warning disable 8603 // Disable "CS8603 Possible null reference return"
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 [GeneratedCode("NSwag", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v13.0.0.0))")]
 public class XRoadApiException<TResult> : ApiException
 {
     public TResult Result { get; private set; }
 
-    public XRoadApiException(string message, int statusCode, string response, IReadOnlyDictionary<string, IEnumerable<string>> headers, TResult result, Exception innerException)
+    public XRoadApiException(string message, int statusCode, string response,
+        IReadOnlyDictionary<string, IEnumerable<string>> headers, TResult result, Exception innerException)
         : base(message, statusCode, response, headers, innerException)
     {
         Result = result;

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// CSR for certificate that is stored in a Token. Also includes the possible actions that can be done to this object, e.g DELETE (only for csr related operations and does not consider user authorization).
@@ -39,5 +39,4 @@ public class TokenCertificateSigningRequest
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

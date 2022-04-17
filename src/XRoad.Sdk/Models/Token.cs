@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// Token. Also includes the possible actions that can be done to this object, e.g DELETE (only for token related operations and does not consider user authorization).
@@ -81,7 +81,8 @@ public class Token
     [JsonProperty("token_infos", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
     public ICollection<KeyValuePair> Token_infos { get; set; }
 
-    [JsonProperty("possible_actions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
+    [JsonProperty("possible_actions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore,
+        ItemConverterType = typeof(StringEnumConverter))]
     public PossibleActions Possible_actions { get; set; }
 
     private IDictionary<string, object> _additionalProperties = new Dictionary<string, object>();
@@ -92,5 +93,4 @@ public class Token
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

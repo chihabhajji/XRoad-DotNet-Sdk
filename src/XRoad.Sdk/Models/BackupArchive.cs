@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// security server backup archive file
@@ -21,5 +21,4 @@ public class BackupArchive
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

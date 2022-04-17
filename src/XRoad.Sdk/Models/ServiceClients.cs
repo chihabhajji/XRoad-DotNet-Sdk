@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// object containing and array of ServiceClients
@@ -24,5 +24,4 @@ public class ServiceClients
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

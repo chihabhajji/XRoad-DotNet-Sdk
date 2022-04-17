@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// Key for the certificate. Also includes the possible actions that can be done to this object, e.g DELETE (only for key related operations and does not consider user authorization).
@@ -48,7 +48,8 @@ public class Key
     /// </summary>
     [JsonProperty("certificate_signing_requests", Required = Required.Always)]
     [Required]
-    public ICollection<TokenCertificateSigningRequest> Certificate_signing_requests { get; set; } = new Collection<TokenCertificateSigningRequest>();
+    public ICollection<TokenCertificateSigningRequest> Certificate_signing_requests { get; set; } =
+        new Collection<TokenCertificateSigningRequest>();
 
     [JsonProperty("usage", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
     [JsonConverter(typeof(StringEnumConverter))]
@@ -63,10 +64,12 @@ public class Key
     /// <summary>
     /// if the key is saved to configuration
     /// </summary>
-    [JsonProperty("saved_to_configuration", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonProperty("saved_to_configuration", Required = Required.DisallowNull,
+        NullValueHandling = NullValueHandling.Ignore)]
     public bool Saved_to_configuration { get; set; }
 
-    [JsonProperty("possible_actions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
+    [JsonProperty("possible_actions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore,
+        ItemConverterType = typeof(StringEnumConverter))]
     public PossibleActions Possible_actions { get; set; }
 
     private IDictionary<string, object> _additionalProperties = new Dictionary<string, object>();
@@ -77,5 +80,4 @@ public class Key
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }

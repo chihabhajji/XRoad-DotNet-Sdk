@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace XRoad.Sdk;
+namespace XRoad.Sdk.Models;
 
 /// <summary>
 /// security server backup
@@ -36,5 +36,4 @@ public class Backup
         get { return _additionalProperties; }
         set { _additionalProperties = value; }
     }
-
 }
