@@ -231,9 +231,6 @@ Class | Method | HTTP request | Description
  - [Model.User](docs/User.md)
  - [Model.VersionInfo](docs/VersionInfo.md)
 
-    
-### Contribution 
-    This repo was created on 3/31/2022, and at the time it is still untested even though the test fixtures are all written, so feel free to test and submit a PR if you found an issue, you can also contribute through the same way
 ### Integration with official x-road documentation
-    Coming soon, feel free to contribute!
+    Feel free to contribute!
 
